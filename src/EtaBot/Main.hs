@@ -4,6 +4,7 @@ module Main where
 
 import           Control.Monad
 import qualified Data.ByteString as B
+import           Data.List ((\\))
 import           Data.Maybe
 import qualified Data.Text as T
 import           Data.Text.Encoding
@@ -61,7 +62,7 @@ dropEndPunctuation = T.reverse . T.dropWhile (`elem` ".,!") . T.reverse
 
 eavesdropResponse :: T.Text -> T.Text -> T.Text -> Maybe T.Text
 eavesdropResponse speaker chan msg
-  | chan `elem` watchChannels =
+  | chan `elem` (watchChannels \\ ["#snapframework"]) =
     let rWith x = T.concat [ speaker , " is talking about " , x
                            , " in ", chan, ": ", msg]
     in case msgKeywords msg of
