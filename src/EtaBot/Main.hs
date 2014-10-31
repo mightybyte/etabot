@@ -29,7 +29,7 @@ config =
   in cfg { cPort = 6667
          , cUsername = botName
          , cRealname = botName
-         , cChannels = ["#snapframework", "#haskell"]
+         , cChannels = map T.unpack watchChannels
          , cEvents = [notifySnap]
          }
 
