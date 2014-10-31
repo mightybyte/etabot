@@ -35,15 +35,6 @@ config =
 
 onDecodeError descr input = Nothing
 
-subst _    _  [       ] = []
-subst from to xs@(a:as) =
-    if isPrefixOf from xs
-        then to ++ subst from to (drop (length from) xs)
-        else a : subst from to as
-    where isPrefixOf as bs = and $ zipWith (==) as bs
-
-foo = T.concat . T.splitOn "snapshot" 
-
 ------------------------------------------------------------------------------
 notifySnap :: IrcEvent
 notifySnap = Privmsg $ \mirc imsg -> do
