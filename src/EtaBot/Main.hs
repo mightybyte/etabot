@@ -15,7 +15,7 @@ botName :: String
 botName = "etabot"
 
 watchChannels :: [T.Text]
-watchChannels = ["#snapframework", "#haskell", "#nothaskell"]
+watchChannels = ["#snapframework", "#haskell"]
 
 noticeWords :: [T.Text]
 noticeWords = ["snap","heist","xmlhtml","tango"]
