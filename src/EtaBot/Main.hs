@@ -49,7 +49,7 @@ dropToWord :: T.Text -> T.Text
 dropToWord = T.filter (\c -> c `elem` ['a'..'z'] || c `elem` ['A'..'Z'])
 
 dropEndPunctuation :: T.Text -> T.Text
-dropEndPunctuation = T.reverse . T.dropWhile (`elem` ".,!") . T.reverse
+dropEndPunctuation = T.reverse . T.dropWhile (`elem` (".,!" :: String)) . T.reverse
 
 eavesdropResponse :: T.Text -> T.Text -> T.Text -> Maybe T.Text
 eavesdropResponse speaker chan msg
